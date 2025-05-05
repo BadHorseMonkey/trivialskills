@@ -1,9 +1,11 @@
-void main(int num_casts)
+void main(string number_of_casts)
 {
   int mana_total;
   int skill_count = 0 ;
+  int num_casts;
   boolean reset_outfit;
   string use_error;
+
 
   skill [int] trivial_skills = {
     $skill[Seal Clubbing Frenzy],
@@ -13,8 +15,14 @@ void main(int num_casts)
     $skill[Disco Aerobics],
     $skill[Moxie of the Mariachi]
     };
-    foreach key in trivial_skills {
-       skill_count = skill_count + to_int(have_skill(trivial_skills[key])) + 1;
+
+  if ( ! is_integer(number_of_casts)) {
+    print("Executes all six of the class primitive skills, putting on the April Shower Thoughts Shield if available.  Enter the number of times to cast as the parameter of the script");
+    print("Usage: trivialskills 10 (where 10 is the number of times for each skill)");
+  else
+  {
+  foreach key in trivial_skills {
+    skill_count = skill_count + to_int(have_skill(trivial_skills[key])) + 1;
     }
   if (skill_count < 1) {
     print ("No trivial skills available.");
@@ -51,5 +59,6 @@ void main(int num_casts)
 
     }
   }
+}
 }
 
